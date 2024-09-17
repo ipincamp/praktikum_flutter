@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Warung Bekicot',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -27,7 +28,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Praktikum Flutter'),
+        title: const Text('Warung Bekicot Magetan'),
       ),
       body: Container(
         color: Colors.red.shade100,
@@ -35,15 +36,22 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: ClipOval(
+                  child: Image(image: AssetImage('bekicot.jpg')),
+                ),
+              ),
+              const SizedBox(height: 20),
               const Text(
-                'Nur Arifin',
+                'Warung Bekicot',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const Text(
-                '220113006',
+                'Jl. Raya Magetan - Madiun',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -51,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               const Text(
-                'S1 Teknologi Informasi',
+                'Telp. 628123456789',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
