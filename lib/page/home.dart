@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
         title: const Center(
           child: Text(
             'Home - Warung Bekicot',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black),
           ),
         ),
       ),
@@ -48,6 +48,23 @@ class HomePage extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 70, 70, 70),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // TODO: Call to action
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                ),
+                child: const Text(
+                  'Order Now!',
+                  style: TextStyle(
+                    fontSize: 20,
+                    height: 2,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],

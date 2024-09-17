@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:warung_bekicot/page/home.dart';
-import 'package:warung_bekicot/page/register.dart';
+import 'package:warung_bekicot/page/login.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class LoginPage extends StatelessWidget {
             children: <Widget>[
               const SizedBox(height: 20),
               const Text(
-                'Please Sign In',
+                'Register',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
@@ -38,7 +37,7 @@ class LoginPage extends StatelessWidget {
                       style: TextStyle(color: Colors.black, fontSize: 18),
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Sign in with existing account',
+                            text: 'Register to create an account',
                             style: TextStyle(color: Colors.blueGrey)),
                       ],
                     ),
@@ -49,8 +48,18 @@ class LoginPage extends StatelessWidget {
                     child: TextField(
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Email',
-                        prefixIcon: Icon(Icons.email),
+                        labelText: 'Full Name',
+                        prefixIcon: Icon(Icons.people),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(10),
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Username',
+                        prefixIcon: Icon(Icons.people),
                       ),
                     ),
                   ),
@@ -65,19 +74,29 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Container(
+                    margin: const EdgeInsets.all(10),
+                    child: TextField(
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Confirm Password',
+                        prefixIcon: Icon(Icons.lock),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // TODO: Validate input
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => LoginPage()),
                   );
                 },
                 child: const Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -86,10 +105,9 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
-                  // TODO: Go to register page
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                    MaterialPageRoute(builder: (context) => LoginPage()),
                   );
                 },
                 child: RichText(
@@ -97,12 +115,12 @@ class LoginPage extends StatelessWidget {
                     style: TextStyle(color: Colors.black, fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
-                        text: "Don't have an account? ",
+                        text: 'Already have an account? ',
                         style: TextStyle(color: Colors.blueGrey),
                       ),
                       TextSpan(
-                        text: 'Register',
-                        style: TextStyle(color: Colors.blue),
+                        text: 'Sign in',
+                        style: TextStyle(color: Colors.green),
                       ),
                     ],
                   ),
