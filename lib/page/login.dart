@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:warung_bekicot/page/home.dart';
 import 'package:warung_bekicot/page/register.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +76,7 @@ class LoginPage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // TODO: Validate input
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => HomePage()),
                   );

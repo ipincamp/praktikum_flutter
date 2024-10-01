@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: ClipOval(
-                  child: Image(image: AssetImage('bekicot.jpg')),
+                  child: Image(image: AssetImage('assets/bekicot.jpg')),
                 ),
               ),
               const SizedBox(height: 20),
