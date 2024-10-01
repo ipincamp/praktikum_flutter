@@ -13,6 +13,19 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  void _tampil()
+  {
+    String email = _emailController.text; // Mengambil nilai dari input email
+    String password = _passwordController.text; // Mengambil nilai dari input password
+
+    showDialog(context: context, builder: (context) {
+      return AlertDialog(
+        title: const Text('Data Akun'),
+        content: Text("Email: $email, Password: $password"),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
