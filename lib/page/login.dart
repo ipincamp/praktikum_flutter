@@ -18,6 +18,16 @@ class _LoginPageState extends State<LoginPage> {
     String email = _emailController.text; // Mengambil nilai dari input email
     String password = _passwordController.text; // Mengambil nilai dari input password
 
+    if (email.isEmpty || password.isEmpty) {
+      showDialog(context: context, builder: (context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: const Text('Email dan Password tidak boleh kosong'),
+        );
+      });
+      return;
+    }
+
     showDialog(context: context, builder: (context) {
       return AlertDialog(
         title: const Text('Data Akun'),
@@ -94,10 +104,12 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   // TODO: Validate input
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
+                  _tampil();
+
+                  // Navigator.pushReplacement(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => HomePage()),
+                  // );
                 },
                 child: const Text(
                   'Login',

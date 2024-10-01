@@ -1,8 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:warung_bekicot/page/home.dart';
 import 'package:warung_bekicot/page/login.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+
+  void _tampil(context)
+  {
+    String fullName = _fullNameController.text;
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+    String confirmPassword = _confirmPasswordController.text;
+
+    if (fullName.isEmpty || password.isEmpty | username.isEmpty | confirmPassword.isEmpty) {
+      showDialog(context: context, builder: (context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: const Text('Tolong isi semua kolom dengan benar'),
+        );
+      });
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +80,7 @@ class RegisterPage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: TextField(
+                      controller: _fullNameController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Full Name',
@@ -56,6 +91,7 @@ class RegisterPage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: TextField(
+                      controller: _usernameController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Username',
@@ -66,6 +102,7 @@ class RegisterPage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: TextField(
+                      controller: _passwordController,
                       obscureText: true,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
@@ -77,6 +114,7 @@ class RegisterPage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: TextField(
+                      controller: _confirmPasswordController,
                       obscureText: true,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
@@ -90,10 +128,11 @@ class RegisterPage extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
+                  _tampil(context);
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => LoginPage()),
+                  // );
                 },
                 child: const Text(
                   'Sign Up',
