@@ -52,7 +52,8 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: TextField(
-                      decoration: const InputDecoration(
+                        controller: _emailController,
+                        decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
                         prefixIcon: Icon(Icons.email),
@@ -62,8 +63,9 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     margin: const EdgeInsets.all(10),
                     child: TextField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
+                        controller: _passwordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Password',
                         prefixIcon: Icon(Icons.lock),
